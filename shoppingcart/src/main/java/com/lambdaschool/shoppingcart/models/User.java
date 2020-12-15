@@ -1,12 +1,13 @@
 package com.lambdaschool.shoppingcart.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 /**
  * The entity allowing interaction with the users table
@@ -212,4 +213,18 @@ public class User
     {
         this.carts = carts;
     }
+
+    @JsonIgnore
+	public List<SimpleGrantedAuthority> getAuthority()
+	{
+	    List<SimpleGrantedAuthority> rtnList = new ArrayList<>();
+        
+        for (UserRoles r : this.roles)
+        {
+            String role = "ROLE_" + r.getRole().getName().toUpperCase();
+            rtnList.add(new SimpleGrantedAuthority(role));
+        }
+        
+        return rtnList;
+	}
 }
