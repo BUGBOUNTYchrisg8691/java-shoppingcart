@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -201,5 +202,13 @@ public class UserController
     {
         userService.delete(id);
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+    
+    @GetMapping(value = "/users/myinfo", produces = "application/json")
+    public ResponseEntity<?> getMyInfo(HttpServletRequest request)
+    {
+//        String authHeader = request.getHeader("Authorization");
+        User user = userService.findMyInfo(request);
+        return new ResponseEntity<>(user, HttpStatus.OK);
     }
 }

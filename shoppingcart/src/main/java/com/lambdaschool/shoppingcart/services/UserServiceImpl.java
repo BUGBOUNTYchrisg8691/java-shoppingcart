@@ -7,9 +7,12 @@ import com.lambdaschool.shoppingcart.models.User;
 import com.lambdaschool.shoppingcart.models.UserRoles;
 import com.lambdaschool.shoppingcart.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -179,4 +182,11 @@ public class UserServiceImpl
     {
         userrepos.deleteAll();
     }
+	
+	@Override public User findMyInfo(HttpServletRequest request)
+	{
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User authUser = userrepos.findByUsername(auth.getName());
+        return authUser;
+	}
 }

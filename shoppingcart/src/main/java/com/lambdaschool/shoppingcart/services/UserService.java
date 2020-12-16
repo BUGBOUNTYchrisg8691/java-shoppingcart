@@ -2,6 +2,7 @@ package com.lambdaschool.shoppingcart.services;
 
 import com.lambdaschool.shoppingcart.models.User;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -78,4 +79,6 @@ public interface UserService
      * Deletes all record and their associated records from the database
      */
     public void deleteAll();
+	
+	User findMyInfo(HttpServletRequest request);
 }

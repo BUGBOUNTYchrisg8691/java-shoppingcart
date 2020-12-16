@@ -8,6 +8,7 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.R
 import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.error.OAuth2AccessDeniedHandler;
 
+
 /**
  * The type Resource server config.
  */
@@ -37,11 +38,23 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter
 						"/webjars/**",
 						"/register")
 				.permitAll()
-				.antMatchers(HttpMethod.POST, "/users/**")
+				.antMatchers("/roles/**", "/products/**")
 				.hasAnyRole("ADMIN")
-				.antMatchers(HttpMethod.DELETE, "/users/**")
+				.antMatchers(HttpMethod.POST, "/users/user")
 				.hasAnyRole("ADMIN")
-				.antMatchers(HttpMethod.PUT, "/users/**")
+				.antMatchers(HttpMethod.DELETE, "/users/user/[0-9]+")
+				.hasAnyRole("ADMIN")
+				.antMatchers(HttpMethod.PUT, "/users/user/[0-9]+")
+				.hasAnyRole("ADMIN")
+				.antMatchers(HttpMethod.GET, "/users/user/name/[0-9a-zA-Z]+")
+				.hasAnyRole("ADMIN")
+				.antMatchers(HttpMethod.GET, "/users/user/name/like/[0-9a-zA-Z]+")
+				.hasAnyRole("ADMIN")
+				.antMatchers(HttpMethod.GET, "/users/user")
+				.hasAnyRole("ADMIN")
+				.antMatchers(HttpMethod.PATCH, "/users/user/[0-9]+")
+				.hasAnyRole("ADMIN")
+				.antMatchers(HttpMethod.GET, "/users/user/[0-9]+")
 				.hasAnyRole("ADMIN")
 				.antMatchers("/users/**",
 						"/oauth/revoke-token",
@@ -53,7 +66,34 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter
 				.and()
 				.exceptionHandling()
 				.accessDeniedHandler(new OAuth2AccessDeniedHandler());
-		
+				
+//		http.authorizeRequests()
+//				.antMatchers("/",
+//						"/h2-console/**",
+//						"/swagger-resources/**",
+//						"/swagger-resource/**",
+//						"/swagger-ui.html",
+//						"/v2/api-docs",
+//						"/webjars/**",
+//						"/register")
+//				.permitAll()
+//				.antMatchers(HttpMethod.POST, "/users/**")
+//				.hasAnyRole("ADMIN")
+//				.antMatchers(HttpMethod.DELETE, "/users/**")
+//				.hasAnyRole("ADMIN")
+//				.antMatchers(HttpMethod.PUT, "/users/**")
+//				.hasAnyRole("ADMIN")
+//				.antMatchers("/users/**",
+//						"/oauth/revoke-token",
+//						"/logout",
+//						"/carts/**")
+//				.authenticated()
+//				.antMatchers("/roles/**")
+//				.hasAnyRole("ADMIN")
+//				.and()
+//				.exceptionHandling()
+//				.accessDeniedHandler(new OAuth2AccessDeniedHandler());
+//
 		http.csrf().disable();
 		http.headers().frameOptions().disable();
 		http.logout().disable();
