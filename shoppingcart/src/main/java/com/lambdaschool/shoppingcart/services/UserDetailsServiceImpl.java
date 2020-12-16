@@ -6,8 +6,8 @@ import com.lambdaschool.shoppingcart.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service(value = "userDetailsService")
 public class UserDetailsServiceImpl implements UserDetailsService
@@ -15,7 +15,8 @@ public class UserDetailsServiceImpl implements UserDetailsService
 	@Autowired
 	private UserRepository userrepos;
 	
-	@Override public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException
+	@Transactional
+	@Override public UserDetails loadUserByUsername(String s) throws ResourceNotFoundException
 	{
 		User user = userrepos.findByUsername(s.toLowerCase());
 		
@@ -24,7 +25,7 @@ public class UserDetailsServiceImpl implements UserDetailsService
 			throw new ResourceNotFoundException("Invalid username or password");
 		}
 		
-		return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getUsername(),
+		return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(),
 				user.getAuthority());
 	}
 }
