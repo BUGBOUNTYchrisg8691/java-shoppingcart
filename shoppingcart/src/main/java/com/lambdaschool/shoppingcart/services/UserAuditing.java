@@ -1,6 +1,8 @@
 package com.lambdaschool.shoppingcart.services;
 
 import org.springframework.data.domain.AuditorAware;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
 import java.util.Optional;
@@ -22,7 +24,16 @@ public class UserAuditing
     public Optional<String> getCurrentAuditor()
     {
         String uname;
-        uname = "SYSTEM";
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        
+        if (auth != null)
+        {
+            uname = auth.getName();
+        } else
+        {
+            // to work with SeedData
+            uname = "SYSTEM";
+        }
         return Optional.of(uname);
     }
 }
