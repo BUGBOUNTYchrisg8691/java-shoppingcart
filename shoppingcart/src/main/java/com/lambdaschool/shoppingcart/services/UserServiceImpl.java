@@ -183,7 +183,7 @@ public class UserServiceImpl
         userrepos.deleteAll();
     }
 	
-	@Override public User findMyInfo(HttpServletRequest request)
+	@Override public User findMyInfo()
 	{
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User authUser = userrepos.findByUsername(auth.getName());

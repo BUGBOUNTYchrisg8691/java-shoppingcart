@@ -21,6 +21,9 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.*;
 
+/**
+ * The type Register controller.
+ */
 @RestController
 public class RegisterController
 {
@@ -30,6 +33,14 @@ public class RegisterController
 	@Autowired
 	private RoleService roleService;
 	
+	/**
+	 * Register self response entity.
+	 *
+	 * @param httpServletRequest the http servlet request
+	 * @param user               the user
+	 * @return the response entity
+	 * @throws URISyntaxException the uri syntax exception
+	 */
 	@PostMapping(value = "/register", consumes = "application/json", produces = "application/json")
 	public ResponseEntity<?> registerSelf(HttpServletRequest httpServletRequest,
 	                                      @Valid @RequestBody UserMinimum user) throws URISyntaxException

@@ -31,7 +31,6 @@ public class UserAuditing
             uname = auth.getName();
         } else
         {
-            // to work with SeedData
             uname = "SYSTEM";
         }
         return Optional.of(uname);

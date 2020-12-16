@@ -34,7 +34,7 @@ public class RolesController
      * <br>Example: <a href="http://localhost:2019/roles/roles">http://localhost:2019/roles/roles</a>
      *
      * @return JSON List of all the roles and their associated users
-     * @see RoleService#findAll() RoleService#findAll()RoleService.findAll()
+     * @see RoleService#findAll() RoleService#findAll()RoleService#findAll()RoleService.findAll()
      */
     @GetMapping(value = "/roles",
         produces = "application/json")
@@ -51,7 +51,8 @@ public class RolesController
      *
      * @param roleId The primary key (long) of the role you seek
      * @return JSON object of the role you seek
-     * @see RoleService#findRoleById(long) RoleService#findRoleById(long)RoleService.findRoleById(long)
+     * @see RoleService#findRoleById(long) RoleService#findRoleById(long)RoleService#findRoleById(long)RoleService
+     * .findRoleById(long)
      */
     @GetMapping(value = "/role/{roleId}",
         produces = "application/json")
@@ -70,7 +71,8 @@ public class RolesController
      *
      * @param roleName The name of the role you seek
      * @return JSON object of the role you seek
-     * @see RoleService#findByName(String) RoleService#findByName(String)RoleService.findByName(String)
+     * @see RoleService#findByName(String) RoleService#findByName(String)RoleService#findByName(String)RoleService
+     * .findByName(String)
      */
     @GetMapping(value = "/role/name/{roleName}",
         produces = "application/json")
@@ -89,7 +91,7 @@ public class RolesController
      *
      * @param newRole A complete new Role object
      * @return A location header with the URI to the newly created role and a status of CREATED
-     * @see RoleService#save(Role) RoleService#save(Role)RoleService.save(Role)
+     * @see RoleService#save(Role) RoleService#save(Role)RoleService#save(Role)RoleService.save(Role)
      */
     @PostMapping(value = "/role",
         consumes = "application/json")

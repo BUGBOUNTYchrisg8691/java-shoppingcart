@@ -33,7 +33,7 @@ public class UserController
      * <br>Example: <a href="http://localhost:2019/users/users">http://localhost:2019/users/users</a>
      *
      * @return JSON list of all users with a status of OK
-     * @see UserService#findAll() UserService#findAll()UserService.findAll()
+     * @see UserService#findAll() UserService#findAll()UserService#findAll()UserService.findAll()
      */
     @GetMapping(value = "/users",
         produces = "application/json")
@@ -50,7 +50,8 @@ public class UserController
      *
      * @param userId The primary key of the user you seek
      * @return JSON object of the user you seek
-     * @see UserService#findUserById(long) UserService#findUserById(long)UserService.findUserById(long)
+     * @see UserService#findUserById(long) UserService#findUserById(long)UserService#findUserById(long)UserService
+     * .findUserById(long)
      */
     @GetMapping(value = "/user/{userId}",
         produces = "application/json")
@@ -70,7 +71,8 @@ public class UserController
      *
      * @param userName the name of user (String) you seek
      * @return JSON object of the user you seek
-     * @see UserService#findByName(String) UserService#findByName(String)UserService.findByName(String)
+     * @see UserService#findByName(String) UserService#findByName(String)UserService#findByName(String)UserService
+     * .findByName(String)
      */
     @GetMapping(value = "/user/name/{userName}",
         produces = "application/json")
@@ -90,8 +92,8 @@ public class UserController
      *
      * @param userName Substring of the username for which you seek
      * @return A JSON list of users you seek
-     * @see UserService#findByNameContaining(String) UserService#findByNameContaining(String)UserService
-     * .findByNameContaining(String)
+     * @see UserService#findByNameContaining(String) UserService#findByNameContaining(String)
+     * UserService#findByNameContaining(String)UserService .findByNameContaining(String)
      */
     @GetMapping(value = "/user/name/like/{userName}",
         produces = "application/json")
@@ -111,7 +113,7 @@ public class UserController
      * @param newuser A complete new user to add including emails and roles.                roles must already exist.
      * @return A location header with the URI to the newly created user and a status of CREATED
      * @throws URISyntaxException Exception if something does not work in creating the location header
-     * @see UserService#save(User) UserService#save(User)UserService.save(User)
+     * @see UserService#save(User) UserService#save(User)UserService#save(User)UserService.save(User)
      */
     @PostMapping(value = "/user",
         consumes = "application/json")
@@ -146,7 +148,7 @@ public class UserController
      *                   User. Roles must already exist.
      * @param userid     The primary key of the user you wish to replace.
      * @return status of OK
-     * @see UserService#save(User) UserService#save(User)UserService.save(User)
+     * @see UserService#save(User) UserService#save(User)UserService#save(User)UserService.save(User)
      */
     @PutMapping(value = "/user/{userid}",
         consumes = "application/json")
@@ -173,7 +175,8 @@ public class UserController
      *                   left NULL.
      * @param id         The primary key of the user you wish to update.
      * @return A status of OK
-     * @see UserService#update(User, long) UserService#update(User, long)UserService.update(User, long)
+     * @see UserService#update(User, long) UserService#update(User, long)UserService#update(User, long)UserService
+     * .update(User, long)
      */
     @PatchMapping(value = "/user/{id}",
         consumes = "application/json")
@@ -204,11 +207,15 @@ public class UserController
         return new ResponseEntity<>(HttpStatus.OK);
     }
     
-    @GetMapping(value = "/users/myinfo", produces = "application/json")
-    public ResponseEntity<?> getMyInfo(HttpServletRequest request)
+    /**
+     * Gets my info.
+     *
+     * @return the my info
+     */
+    @GetMapping(value = "/myinfo", produces = "application/json")
+    public ResponseEntity<?> getMyInfo()
     {
-//        String authHeader = request.getHeader("Authorization");
-        User user = userService.findMyInfo(request);
+        User user = userService.findMyInfo();
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
 }

@@ -42,19 +42,19 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter
 				.hasAnyRole("ADMIN")
 				.antMatchers(HttpMethod.POST, "/users/user")
 				.hasAnyRole("ADMIN")
-				.antMatchers(HttpMethod.DELETE, "/users/user/[0-9]+")
+				.antMatchers(HttpMethod.DELETE, "/users/user/{id}")
 				.hasAnyRole("ADMIN")
-				.antMatchers(HttpMethod.PUT, "/users/user/[0-9]+")
+				.antMatchers(HttpMethod.PUT, "/users/user/{id}")
 				.hasAnyRole("ADMIN")
-				.antMatchers(HttpMethod.GET, "/users/user/name/[0-9a-zA-Z]+")
+				.antMatchers(HttpMethod.GET, "/users/user/name/{username}")
 				.hasAnyRole("ADMIN")
-				.antMatchers(HttpMethod.GET, "/users/user/name/like/[0-9a-zA-Z]+")
+				.antMatchers(HttpMethod.GET, "/users/user/name/like/{username}")
 				.hasAnyRole("ADMIN")
 				.antMatchers(HttpMethod.GET, "/users/user")
 				.hasAnyRole("ADMIN")
-				.antMatchers(HttpMethod.PATCH, "/users/user/[0-9]+")
+				.antMatchers(HttpMethod.PATCH, "/users/user/{id}")
 				.hasAnyRole("ADMIN")
-				.antMatchers(HttpMethod.GET, "/users/user/[0-9]+")
+				.antMatchers(HttpMethod.GET, "/users/user/{id}")
 				.hasAnyRole("ADMIN")
 				.antMatchers("/users/**",
 						"/oauth/revoke-token",
@@ -67,33 +67,6 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter
 				.exceptionHandling()
 				.accessDeniedHandler(new OAuth2AccessDeniedHandler());
 				
-//		http.authorizeRequests()
-//				.antMatchers("/",
-//						"/h2-console/**",
-//						"/swagger-resources/**",
-//						"/swagger-resource/**",
-//						"/swagger-ui.html",
-//						"/v2/api-docs",
-//						"/webjars/**",
-//						"/register")
-//				.permitAll()
-//				.antMatchers(HttpMethod.POST, "/users/**")
-//				.hasAnyRole("ADMIN")
-//				.antMatchers(HttpMethod.DELETE, "/users/**")
-//				.hasAnyRole("ADMIN")
-//				.antMatchers(HttpMethod.PUT, "/users/**")
-//				.hasAnyRole("ADMIN")
-//				.antMatchers("/users/**",
-//						"/oauth/revoke-token",
-//						"/logout",
-//						"/carts/**")
-//				.authenticated()
-//				.antMatchers("/roles/**")
-//				.hasAnyRole("ADMIN")
-//				.and()
-//				.exceptionHandling()
-//				.accessDeniedHandler(new OAuth2AccessDeniedHandler());
-//
 		http.csrf().disable();
 		http.headers().frameOptions().disable();
 		http.logout().disable();

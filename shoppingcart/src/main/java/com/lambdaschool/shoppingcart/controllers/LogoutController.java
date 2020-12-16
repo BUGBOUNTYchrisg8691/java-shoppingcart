@@ -10,12 +10,21 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * The type Logout controller.
+ */
 @RestController
 public class LogoutController
 {
 	@Autowired
 	private TokenStore tokenStore;
 	
+	/**
+	 * Logout self response entity.
+	 *
+	 * @param request the request
+	 * @return the response entity
+	 */
 	@GetMapping(value = {"/oauth/revoke-token", "/logout"}, produces = "application/json")
 	public ResponseEntity<?> logoutSelf(HttpServletRequest request)
 	{

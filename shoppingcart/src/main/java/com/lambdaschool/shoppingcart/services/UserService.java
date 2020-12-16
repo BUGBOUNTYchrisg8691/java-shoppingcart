@@ -79,6 +79,11 @@ public interface UserService
      * Deletes all record and their associated records from the database
      */
     public void deleteAll();
-	
-	User findMyInfo(HttpServletRequest request);
+    
+    /**
+     * Find my info user.
+     *
+     * @return the user
+     */
+    User findMyInfo();
 }
