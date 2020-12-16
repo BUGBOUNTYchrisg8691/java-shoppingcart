@@ -17,7 +17,7 @@ public interface RoleService
      * @return list of all Role object
      */
     List<Role> findAll();
-
+    
     /**
      * Return the first Role matching the given primary key
      *
@@ -25,11 +25,11 @@ public interface RoleService
      * @return The Role object you seek
      */
     Role findRoleById(long id);
-
+    
     /**
-     * Given a complete Role object, saved that Role object in the database.
-     * If a primary key is provided, the record is completely replaced
-     * If no primary key is provided, one is automatically generated and the record is added to the database.
+     * Given a complete Role object, saved that Role object in the database. If a primary key is provided, the record is
+     * completely replaced If no primary key is provided, one is automatically generated and the record is added to the
+     * database.
      * <p>
      * Note that Users are not added to Roles through this process
      *
@@ -37,7 +37,7 @@ public interface RoleService
      * @return the saved role object including any automatically generated fields
      */
     Role save(Role role);
-
+    
     /**
      * Find the first Role object matching the given name
      *
@@ -45,12 +45,12 @@ public interface RoleService
      * @return The Role object matching the given name
      */
     Role findByName(String name);
-
+    
     /**
      * Deletes all record and their associated records from the database
      */
     public void deleteAll();
-
+    
     /**
      * Updates the name of the given role
      *

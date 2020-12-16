@@ -6,14 +6,12 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 /**
- * The entity allowing interaction with the userroles table.
- * The join table between users and roles.
+ * The entity allowing interaction with the userroles table. The join table between users and roles.
  * <p>
- * Table enforces a unique constraint of the combination of userid and roleid.
- * These two together form the primary key.
+ * Table enforces a unique constraint of the combination of userid and roleid. These two together form the primary key.
  * <p>
- * When you have a compound primary key, you must implement Serializable for Hibernate
- * When you implement Serializable you must implement equals and hash code
+ * When you have a compound primary key, you must implement Serializable for Hibernate When you implement Serializable
+ * you must implement equals and hash code
  */
 @Entity
 @Table(name = "userroles")
@@ -43,14 +41,14 @@ public class UserRoles
     @JsonIgnoreProperties(value = "users",
         allowSetters = true)
     private Role role;
-
+    
     /**
      * Default constructor used primarily by the JPA.
      */
     public UserRoles()
     {
     }
-
+    
     /**
      * Given the params, create a new user role combination object
      *
@@ -64,7 +62,7 @@ public class UserRoles
         this.user = user;
         this.role = role;
     }
-
+    
     /**
      * The getter for User
      *
@@ -74,7 +72,7 @@ public class UserRoles
     {
         return user;
     }
-
+    
     /**
      * Setter for user
      *
@@ -84,7 +82,7 @@ public class UserRoles
     {
         this.user = user;
     }
-
+    
     /**
      * Getter for role
      *
@@ -94,7 +92,7 @@ public class UserRoles
     {
         return role;
     }
-
+    
     /**
      * Setter for role
      *

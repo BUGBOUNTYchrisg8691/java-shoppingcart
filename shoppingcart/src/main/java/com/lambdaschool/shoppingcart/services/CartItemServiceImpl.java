@@ -11,6 +11,9 @@ import com.lambdaschool.shoppingcart.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * The type Cart item service.
+ */
 @Service(value = "cartitemService")
 public class CartItemServiceImpl implements CartItemService
 {

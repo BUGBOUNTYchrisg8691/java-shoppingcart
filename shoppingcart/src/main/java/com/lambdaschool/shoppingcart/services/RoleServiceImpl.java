@@ -25,7 +25,7 @@ public class RoleServiceImpl
      */
     @Autowired
     RoleRepository rolerepos;
-
+    
     /**
      * Connect this service to the User Model
      */

@@ -6,6 +6,11 @@ package com.lambdaschool.shoppingcart.exceptions;
 public class ResourceFoundException
     extends RuntimeException
 {
+    /**
+     * Instantiates a new Resource found exception.
+     *
+     * @param message the message
+     */
     public ResourceFoundException(String message)
     {
         super("Error from a Lambda School Application " + message);

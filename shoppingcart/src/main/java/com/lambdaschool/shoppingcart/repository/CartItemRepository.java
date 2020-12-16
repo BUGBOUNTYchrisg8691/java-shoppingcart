@@ -4,6 +4,9 @@ import com.lambdaschool.shoppingcart.models.CartItem;
 import com.lambdaschool.shoppingcart.models.CartItemId;
 import org.springframework.data.repository.CrudRepository;
 
+/**
+ * The interface Cart item repository.
+ */
 public interface CartItemRepository extends CrudRepository<CartItem, CartItemId>
 {
 }

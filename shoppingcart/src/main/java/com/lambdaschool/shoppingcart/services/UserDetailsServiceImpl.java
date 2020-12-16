@@ -9,6 +9,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+/**
+ * The type User details service.
+ */
 @Service(value = "userDetailsService")
 public class UserDetailsServiceImpl implements UserDetailsService
 {

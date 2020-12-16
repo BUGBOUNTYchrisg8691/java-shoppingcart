@@ -39,14 +39,14 @@ public class Role
     @JsonIgnoreProperties(value = "role",
         allowSetters = true)
     private Set<UserRoles> users = new HashSet<>();
-
+    
     /**
      * Default Constructor used primarily by the JPA.
      */
     public Role()
     {
     }
-
+    
     /**
      * Given the name, create a new role object. User gets added later
      *
@@ -56,7 +56,7 @@ public class Role
     {
         this.name = name.toUpperCase();
     }
-
+    
     /**
      * Getter for role id
      *
@@ -66,7 +66,7 @@ public class Role
     {
         return roleid;
     }
-
+    
     /**
      * Setter for role id, used for seeding data
      *
@@ -76,7 +76,7 @@ public class Role
     {
         this.roleid = roleid;
     }
-
+    
     /**
      * Getter for role name
      *
@@ -86,7 +86,7 @@ public class Role
     {
         return name;
     }
-
+    
     /**
      * Setter for role name
      *
@@ -96,7 +96,7 @@ public class Role
     {
         this.name = name.toUpperCase();
     }
-
+    
     /**
      * Getter for user role combinations
      *
@@ -106,7 +106,7 @@ public class Role
     {
         return users;
     }
-
+    
     /**
      * Setter for user role combinations
      *

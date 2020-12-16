@@ -29,7 +29,7 @@ public class H2ServerConfiguration
      */
     @Value("${h2.web.port:8082}")
     private String h2WebPort;
-
+    
     /**
      * TCP connection to connect with SQL clients to the embedded h2 database.
      * <p>
@@ -49,7 +49,7 @@ public class H2ServerConfiguration
             h2TcpPort)
             .start();
     }
-
+    
     /**
      * Web console for the embedded h2 database.
      * <p>

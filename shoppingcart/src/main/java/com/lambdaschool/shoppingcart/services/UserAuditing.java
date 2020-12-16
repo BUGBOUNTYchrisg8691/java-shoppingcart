@@ -8,8 +8,8 @@ import org.springframework.stereotype.Component;
 import java.util.Optional;
 
 /**
- * Spring Boot needs to know what username to use for the auditing fields CreatedBy and ModifiedBy
- * For now, a default name will be used
+ * Spring Boot needs to know what username to use for the auditing fields CreatedBy and ModifiedBy For now, a default
+ * name will be used
  */
 @Component
 public class UserAuditing

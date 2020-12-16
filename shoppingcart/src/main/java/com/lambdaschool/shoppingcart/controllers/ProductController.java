@@ -13,13 +13,21 @@ import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
 
+/**
+ * The type Product controller.
+ */
 @RestController
 @RequestMapping("/products")
 public class ProductController
 {
     @Autowired
     private ProductService productService;
-
+    
+    /**
+     * List all products response entity.
+     *
+     * @return the response entity
+     */
     @GetMapping(value = "/products",
         produces = {"application/json"})
     public ResponseEntity<?> listAllProducts()
@@ -28,7 +36,13 @@ public class ProductController
         return new ResponseEntity<>(myProducts,
             HttpStatus.OK);
     }
-
+    
+    /**
+     * Gets product by id.
+     *
+     * @param productId the product id
+     * @return the product by id
+     */
     @GetMapping(value = "/product/{productId}",
         produces = {"application/json"})
     public ResponseEntity<?> getProductById(
@@ -39,7 +53,13 @@ public class ProductController
         return new ResponseEntity<>(p,
             HttpStatus.OK);
     }
-
+    
+    /**
+     * Add product response entity.
+     *
+     * @param newproduct the newproduct
+     * @return the response entity
+     */
     @PostMapping(value = "/product")
     public ResponseEntity<?> addProduct(
         @Valid
@@ -61,7 +81,14 @@ public class ProductController
             responseHeaders,
             HttpStatus.CREATED);
     }
-
+    
+    /**
+     * Update product by id response entity.
+     *
+     * @param updateProduct the update product
+     * @param productid     the productid
+     * @return the response entity
+     */
     @PutMapping(value = "/product/{productid}")
     public ResponseEntity<?> updateProductById(
         @RequestBody
@@ -73,7 +100,13 @@ public class ProductController
             updateProduct);
         return new ResponseEntity<>(HttpStatus.OK);
     }
-
+    
+    /**
+     * Gets product by id.
+     *
+     * @param productid the productid
+     * @return the product by id
+     */
     @DeleteMapping(value = "/product/{productid}")
     public ResponseEntity<?> getProductById(
         @PathVariable

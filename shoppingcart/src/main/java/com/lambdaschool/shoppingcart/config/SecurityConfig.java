@@ -14,6 +14,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.InMemoryTokenStore;
 
+/**
+ * The type Security config.
+ */
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
@@ -22,6 +25,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
 	@Autowired
 	private UserDetailsService userDetailsService;
 	
+	/**
+	 * Global user details.
+	 *
+	 * @param auth the auth
+	 * @throws Exception the exception
+	 */
 	@Autowired
 	public void globalUserDetails(AuthenticationManagerBuilder auth) throws Exception
 	{
@@ -34,12 +43,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
 		return super.authenticationManagerBean();
 	}
 	
+	/**
+	 * Encoder password encoder.
+	 *
+	 * @return the password encoder
+	 */
 	@Bean
 	public PasswordEncoder encoder()
 	{
 		return new BCryptPasswordEncoder();
 	}
 	
+	/**
+	 * Token store token store.
+	 *
+	 * @return the token store
+	 */
 	@Bean
 	public TokenStore tokenStore()
 	{

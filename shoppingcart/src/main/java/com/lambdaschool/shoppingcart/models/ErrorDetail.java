@@ -39,14 +39,14 @@ public class ErrorDetail
      * If data validation errors caused this error, the list of them will appear here.
      */
     private List<ValidationError> errors = new ArrayList<>();
-
+    
     /**
      * Default constructor for this class
      */
     public ErrorDetail()
     {
     }
-
+    
     /**
      * Getter for title
      *
@@ -56,7 +56,7 @@ public class ErrorDetail
     {
         return title;
     }
-
+    
     /**
      * Setter for title
      *
@@ -66,7 +66,7 @@ public class ErrorDetail
     {
         this.title = title;
     }
-
+    
     /**
      * Getter for status
      *
@@ -76,7 +76,7 @@ public class ErrorDetail
     {
         return status;
     }
-
+    
     /**
      * Setter for status
      *
@@ -86,7 +86,7 @@ public class ErrorDetail
     {
         this.status = status;
     }
-
+    
     /**
      * Getter for error details
      *
@@ -96,7 +96,7 @@ public class ErrorDetail
     {
         return detail;
     }
-
+    
     /**
      * Setter for error details
      *
@@ -106,7 +106,7 @@ public class ErrorDetail
     {
         this.detail = detail;
     }
-
+    
     /**
      * Getter for the date and time when this error happened
      *
@@ -116,7 +116,7 @@ public class ErrorDetail
     {
         return timestamp;
     }
-
+    
     /**
      * Setter for the date and time when this error happened
      *
@@ -126,7 +126,7 @@ public class ErrorDetail
     {
         this.timestamp = timestamp;
     }
-
+    
     /**
      * Getter for the developer's message
      *
@@ -136,17 +136,18 @@ public class ErrorDetail
     {
         return developerMessage;
     }
-
+    
     /**
      * Setter for the developer's message
      *
-     * @param developerMessage The new message for developers about this error message (String), things like class and code causing the error.
+     * @param developerMessage The new message for developers about this error message (String), things like class and
+     *                         code causing the error.
      */
     public void setDeveloperMessage(String developerMessage)
     {
         this.developerMessage = developerMessage;
     }
-
+    
     /**
      * Getter for the list of validation errors
      *
@@ -156,7 +157,7 @@ public class ErrorDetail
     {
         return errors;
     }
-
+    
     /**
      * Setter for the list of validation errors
      *

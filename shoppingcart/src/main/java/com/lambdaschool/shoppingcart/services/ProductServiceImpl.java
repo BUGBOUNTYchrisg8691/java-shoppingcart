@@ -12,6 +12,9 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Product service.
+ */
 @Service(value = "productService")
 public class ProductServiceImpl
     implements ProductService

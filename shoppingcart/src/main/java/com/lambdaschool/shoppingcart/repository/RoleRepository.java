@@ -19,7 +19,7 @@ public interface RoleRepository
      * @return the first role matching the given name using a case insensitive search
      */
     Role findByNameIgnoreCase(String name);
-
+    
     /**
      * Updates the name of the role based on the given role id.
      *

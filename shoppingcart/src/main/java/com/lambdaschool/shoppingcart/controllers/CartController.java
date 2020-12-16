@@ -9,6 +9,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * The type Cart controller.
+ */
 @RestController
 @RequestMapping("/carts")
 public class CartController
@@ -18,7 +21,13 @@ public class CartController
 
     @Autowired
     private UserService userService;
-
+    
+    /**
+     * List cart items by user id response entity.
+     *
+     * @param userid the userid
+     * @return the response entity
+     */
     @GetMapping(value = "/user/{userid}",
         produces = {"application/json"})
     public ResponseEntity<?> listCartItemsByUserId(
@@ -29,7 +38,14 @@ public class CartController
         return new ResponseEntity<>(u,
             HttpStatus.OK);
     }
-
+    
+    /**
+     * Add to cart response entity.
+     *
+     * @param userid    the userid
+     * @param productid the productid
+     * @return the response entity
+     */
     @PutMapping(value = "/add/user/{userid}/product/{productid}",
         produces = {"application/json"})
     public ResponseEntity<?> addToCart(
@@ -44,7 +60,14 @@ public class CartController
         return new ResponseEntity<>(addCartTtem,
             HttpStatus.OK);
     }
-
+    
+    /**
+     * Remove from cart response entity.
+     *
+     * @param userid    the userid
+     * @param productid the productid
+     * @return the response entity
+     */
     @DeleteMapping(value = "/remove/user/{userid}/product/{productid}",
         produces = {"application/json"})
     public ResponseEntity<?> removeFromCart(

@@ -19,14 +19,14 @@ public class UserRolesId
      * The id of the role
      */
     private long role;
-
+    
     /**
      * The default constructor required by JPA
      */
     public UserRolesId()
     {
     }
-
+    
     /**
      * Getter for the user id
      *
@@ -36,7 +36,7 @@ public class UserRolesId
     {
         return user;
     }
-
+    
     /**
      * Setter for the user id
      *
@@ -46,7 +46,7 @@ public class UserRolesId
     {
         this.user = user;
     }
-
+    
     /**
      * Getter for the role id
      *
@@ -56,7 +56,7 @@ public class UserRolesId
     {
         return role;
     }
-
+    
     /**
      * The setter for the role id
      *

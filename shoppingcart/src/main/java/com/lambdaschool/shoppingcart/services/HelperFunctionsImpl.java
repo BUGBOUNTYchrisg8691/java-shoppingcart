@@ -9,6 +9,9 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Helper functions.
+ */
 @Service(value = "helperFunctions")
 public class HelperFunctionsImpl
     implements HelperFunctions

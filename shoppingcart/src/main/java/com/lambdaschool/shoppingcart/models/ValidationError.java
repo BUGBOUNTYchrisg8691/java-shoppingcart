@@ -14,7 +14,7 @@ public class ValidationError
      * The message (String) fro the validation error
      */
     private String message;
-
+    
     /**
      * Getter for the code
      *
@@ -24,7 +24,7 @@ public class ValidationError
     {
         return Code;
     }
-
+    
     /**
      * Setter for the code
      *
@@ -34,7 +34,7 @@ public class ValidationError
     {
         Code = code;
     }
-
+    
     /**
      * Getter for the message
      *
@@ -44,7 +44,7 @@ public class ValidationError
     {
         return message;
     }
-
+    
     /**
      * Setter for the message
      *

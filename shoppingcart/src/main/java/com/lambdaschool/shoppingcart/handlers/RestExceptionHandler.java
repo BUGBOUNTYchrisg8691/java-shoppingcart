@@ -34,10 +34,10 @@ import java.util.Arrays;
 import java.util.Date;
 
 /**
- * This is the driving class when an exception occurs. All exceptions are handled here.
- * This class is shared across all controllers due to the annotation RestControllerAdvice;
- * this class gives advice to all controllers on how to handle exceptions.
- * Due to the annotation Order(Ordered.HIGHEST_PRECEDENCE), this class takes precedence over all other controller advisors.
+ * This is the driving class when an exception occurs. All exceptions are handled here. This class is shared across all
+ * controllers due to the annotation RestControllerAdvice; this class gives advice to all controllers on how to handle
+ * exceptions. Due to the annotation Order(Ordered.HIGHEST_PRECEDENCE), this class takes precedence over all other
+ * controller advisors.
  */
 @Order(Ordered.HIGHEST_PRECEDENCE)
 @RestControllerAdvice
@@ -49,15 +49,16 @@ public class RestExceptionHandler
      */
     @Autowired
     private HelperFunctions helperFunctions;
-
+    
     /**
-     * The constructor for the RestExceptionHandler. Currently we do not do anything special. We just call the parent constructor.
+     * The constructor for the RestExceptionHandler. Currently we do not do anything special. We just call the parent
+     * constructor.
      */
     public RestExceptionHandler()
     {
         super();
     }
-
+    
     /**
      * Our custom handling of ResourceNotFoundExceptions. This gets thrown manually by our application.
      *
@@ -80,7 +81,7 @@ public class RestExceptionHandler
             null,
             HttpStatus.NOT_FOUND);
     }
-
+    
     /**
      * Our custom handling of ResourceFoundExceptions. This gets thrown manually by our application.
      *

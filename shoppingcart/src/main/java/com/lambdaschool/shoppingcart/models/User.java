@@ -66,14 +66,14 @@ public class User
     @JsonIgnoreProperties(value = "user",
         allowSetters = true)
     private Set<UserRoles> roles = new HashSet<>();
-
+    
     /**
      * Default constructor used primarily by the JPA.
      */
     public User()
     {
     }
-
+    
     /**
      * Given the params, create a new user object
      * <p>
@@ -82,6 +82,7 @@ public class User
      * @param username     The username (String) of the user
      * @param password     The password (String) of the user
      * @param primaryemail The primary email (String) of the user
+     * @param comments     the comments
      */
     public User(
         String username,
@@ -94,7 +95,7 @@ public class User
         this.primaryemail = primaryemail;
         this.comments = comments;
     }
-
+    
     /**
      * Getter for userid
      *
@@ -104,7 +105,7 @@ public class User
     {
         return userid;
     }
-
+    
     /**
      * Setter for userid. Used primary for seeding data
      *
@@ -114,7 +115,7 @@ public class User
     {
         this.userid = userid;
     }
-
+    
     /**
      * Getter for username
      *
@@ -124,7 +125,7 @@ public class User
     {
         return username;
     }
-
+    
     /**
      * setter for username
      *
@@ -134,7 +135,7 @@ public class User
     {
         this.username = username.toLowerCase();
     }
-
+    
     /**
      * getter for primary email
      *
@@ -144,7 +145,7 @@ public class User
     {
         return primaryemail;
     }
-
+    
     /**
      * setter for primary email
      *
@@ -154,7 +155,7 @@ public class User
     {
         this.primaryemail = primaryemail.toLowerCase();
     }
-
+    
     /**
      * Getter for the password
      *
@@ -164,7 +165,7 @@ public class User
     {
         return password;
     }
-
+    
     /**
      * Setter for password
      *
@@ -176,11 +177,16 @@ public class User
         this.password = enc.encode(password);
     }
     
+    /**
+     * Sets password no encrypt.
+     *
+     * @param password the password
+     */
     public void setPasswordNoEncrypt(String password)
     {
         setPassword(password);
     }
-
+    
     /**
      * Getter for user role combinations
      *
@@ -190,7 +196,7 @@ public class User
     {
         return roles;
     }
-
+    
     /**
      * Setter for user role combinations
      *
@@ -200,27 +206,52 @@ public class User
     {
         this.roles = roles;
     }
-
+    
+    /**
+     * Gets comments.
+     *
+     * @return the comments
+     */
     public String getComments()
     {
         return comments;
     }
-
+    
+    /**
+     * Sets comments.
+     *
+     * @param comments the comments
+     */
     public void setComments(String comments)
     {
         this.comments = comments;
     }
-
+    
+    /**
+     * Gets carts.
+     *
+     * @return the carts
+     */
     public Set<CartItem> getCarts()
     {
         return carts;
     }
-
+    
+    /**
+     * Sets carts.
+     *
+     * @param carts the carts
+     */
     public void setCarts(Set<CartItem> carts)
     {
         this.carts = carts;
     }
-
+    
+    /**
+     * Gets authority.
+     *
+     * @return the authority
+     */
     @JsonIgnore
 	public List<SimpleGrantedAuthority> getAuthority()
 	{
