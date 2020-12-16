@@ -8,7 +8,6 @@ import org.springframework.security.oauth2.config.annotation.configurers.ClientD
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
-import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 
 /**
@@ -22,30 +21,37 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 	 * The Client id.
 	 */
 	static final String CLIENT_ID = System.getenv("OAUTHCLIENTID");
+	
 	/**
 	 * The Client secret.
 	 */
 	static final String CLIENT_SECRET = System.getenv("OAUTHCLIENTSECRET");
+	
 	/**
 	 * The Grant type password.
 	 */
 	static final String GRANT_TYPE_PASSWORD = "password";
+	
 	/**
 	 * The Authorization code.
 	 */
 	static final String AUTHORIZATION_CODE = "authorization_code";
+	
 	/**
 	 * The Scope read.
 	 */
 	static final String SCOPE_READ = "read";
+	
 	/**
 	 * The Scope write.
 	 */
 	static final String SCOPE_WRITE = "write";
+	
 	/**
 	 * The Trust.
 	 */
 	static final String TRUST = "trust";
+	
 	/**
 	 * The Access token validity seconds.
 	 */
